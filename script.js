@@ -179,110 +179,111 @@ list.innerHTML = works.map((w, i) => {
   `;
 }).join('');
 
-/* ─── TOGGLE PREVIEW STRIP ─── */
+/* ─── CLICK MỞ BÀI LÀM ─── */
 list.addEventListener('click', e => {
   const trigger = e.target.closest('.work-trigger');
   const openBtn = e.target.closest('.work-preview-open-btn');
   const moreBtn = e.target.closest('.preview-more');
-  const openBtnWork = e.target.closest('.work-open-btn');
 
   if (openBtn || moreBtn) {
-    const id = Number((openBtn || moreBtn).dataset.id);
-    openModal(id);
+    openDoc(Number((openBtn || moreBtn).dataset.id));
     return;
   }
-
   if (trigger) {
     const id = Number(trigger.dataset.id);
     const preview = document.getElementById(`preview-${id}`);
-    if (!preview) { openModal(id); return; }
+    if (!preview) { openDoc(id); return; }
     const isOpen = preview.classList.toggle('open');
     trigger.querySelector('.work-open-btn').textContent = isOpen ? '↑' : '→';
   }
 });
 
-/* ─── MODAL ─── */
-const modal      = document.getElementById('modal');
-const backdrop   = document.getElementById('modal-backdrop');
-const mBadge     = document.getElementById('modal-badge');
-const mTopTitle  = document.getElementById('modal-topbar-title');
-const mTitle     = document.getElementById('modal-title');
-const mSummary   = document.getElementById('modal-summary');
-const mHl        = document.getElementById('modal-hl');
-const mPages     = document.getElementById('modal-pages');
-const mEmpty     = document.getElementById('modal-empty');
-const mDl        = document.getElementById('modal-dl');
-const mEmptyDl   = document.getElementById('modal-empty-dl');
-const mX         = document.getElementById('modal-x');
+/* ─── TRANG BÀI LÀM ─── */
+const docPage      = document.getElementById('doc-page');
+const docBack      = document.getElementById('doc-back');
+const docSource    = document.getElementById('doc-source');
+const docDl        = document.getElementById('doc-dl');
+const docLabel     = document.getElementById('doc-label');
+const docTitle     = document.getElementById('doc-title');
+const docSummary   = document.getElementById('doc-summary');
+const docSteps     = document.getElementById('doc-steps');
+const docImages    = document.getElementById('doc-images');
+const docEmpty     = document.getElementById('doc-empty');
+const docEmptyDl   = document.getElementById('doc-empty-dl');
+const docFooterDl  = document.getElementById('doc-footer-dl');
 
-function openModal(id) {
+function openDoc(id) {
   const w = works.find(x => x.id === id);
   if (!w) return;
 
-  mBadge.textContent    = w.source;
-  mTopTitle.textContent = w.title;
-  mTitle.textContent    = w.title;
-  mSummary.textContent  = w.summary;
-  mDl.href              = w.doc;
-  mEmptyDl.href         = w.doc;
-  mHl.innerHTML = w.highlights.map(h => `<li>${h}</li>`).join('');
+  docSource.textContent  = w.source;
+  docDl.href             = w.doc;
+  docLabel.textContent   = w.source;
+  docTitle.textContent   = w.title;
+  docSummary.textContent = w.summary;
+  docFooterDl.href       = w.doc;
+  docEmptyDl.href        = w.doc;
 
+  // Steps / highlights
+  docSteps.innerHTML = `
+    <p class="doc-steps-title">Nội dung thực hiện</p>
+    ${w.highlights.map((h, i) => `
+      <div class="doc-step">
+        <div class="doc-step-num">${i + 1}</div>
+        <div class="doc-step-text">${h}</div>
+      </div>
+    `).join('')}
+  `;
+
+  // Images
   if (w.images.length > 0) {
-    mEmpty.style.display = 'none';
-    mPages.style.display = 'flex';
-    mPages.innerHTML = w.images.map((src, i) => `
-      <div>
-        <div class="page-label">Trang ${i + 1} / ${w.images.length}</div>
-        <div class="page-img-wrap">
-          <img src="${src}" alt="Trang ${i + 1}" loading="lazy">
+    docEmpty.style.display  = 'none';
+    docImages.style.display = 'flex';
+    docImages.innerHTML = w.images.map((src, i) => `
+      <div class="doc-img-block">
+        <p class="doc-img-caption">Ảnh minh chứng ${i + 1} / ${w.images.length}</p>
+        <div class="doc-img-wrap">
+          <img src="${src}" alt="Minh chứng ${i + 1}" loading="lazy">
         </div>
       </div>
     `).join('');
   } else {
-    mPages.style.display = 'none';
-    mEmpty.style.display = 'block';
+    docImages.style.display = 'none';
+    docEmpty.style.display  = 'block';
   }
 
-  modal.classList.add('open');
-  modal.setAttribute('aria-hidden', 'false');
+  docPage.classList.add('open');
+  docPage.setAttribute('aria-hidden', 'false');
+  docPage.scrollTop = 0;
   document.body.style.overflow = 'hidden';
-
-  // scroll modal body to top
-  document.querySelector('.modal-body').scrollTop = 0;
 }
 
-function closeModal() {
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden', 'true');
+function closeDoc() {
+  docPage.classList.remove('open');
+  docPage.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
 }
 
-mX.addEventListener('click', closeModal);
-backdrop.addEventListener('click', closeModal);
+docBack.addEventListener('click', closeDoc);
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  if (e.key === 'Escape' && docPage.classList.contains('open')) closeDoc();
 });
 
-/* ─── ZOOM IN on image click ─── */
+/* ─── ZOOM ảnh trong trang bài làm ─── */
 const zoom = document.createElement('div');
 zoom.className = 'zoom-overlay';
-zoom.innerHTML = '<button class="zoom-close" aria-label="Đóng">✕</button><img src="" alt="">';
+zoom.innerHTML = '<button class="zoom-close" aria-label="Dong">x</button><img src="" alt="">';
 document.body.appendChild(zoom);
 const zoomImg = zoom.querySelector('img');
 
-document.getElementById('modal-pages').addEventListener('click', e => {
+docImages.addEventListener('click', e => {
   const img = e.target.closest('img');
   if (!img) return;
   zoomImg.src = img.src;
   zoom.classList.add('open');
 });
 zoom.addEventListener('click', e => {
-  if (e.target === zoom || e.target.closest('.zoom-close')) {
-    zoom.classList.remove('open');
-  }
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') zoom.classList.remove('open');
+  if (e.target === zoom || e.target.closest('.zoom-close')) zoom.classList.remove('open');
 });
 
 /* ─── MOBILE NAV ─── */

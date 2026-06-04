@@ -117,31 +117,27 @@
     </div>
   </footer>
 
-  <!-- MODAL -->
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-backdrop" id="modal-backdrop"></div>
-    <div class="modal-panel" id="modal-panel">
-      <div class="modal-topbar">
-        <div class="modal-topbar-info">
-          <span class="modal-badge" id="modal-badge"></span>
-          <span class="modal-topbar-title" id="modal-topbar-title"></span>
-        </div>
-        <div class="modal-topbar-actions">
-          <a class="modal-dl-btn" id="modal-dl" href="#">⬇ Tải file Word</a>
-          <button class="modal-x" id="modal-x" aria-label="Đóng">✕</button>
-        </div>
+  <!-- TRANG BÀI LÀM (full-screen) -->
+  <div class="doc-page" id="doc-page" aria-hidden="true">
+    <div class="doc-topbar">
+      <button class="doc-back" id="doc-back">← Quay lại</button>
+      <span class="doc-source" id="doc-source"></span>
+      <a class="doc-dl" id="doc-dl" href="#">⬇ Tải file Word</a>
+    </div>
+    <div class="doc-content">
+      <div class="doc-hero">
+        <p class="doc-label" id="doc-label"></p>
+        <h1 class="doc-title" id="doc-title"></h1>
+        <p class="doc-summary" id="doc-summary"></p>
       </div>
-      <div class="modal-body">
-        <div class="modal-intro">
-          <h2 id="modal-title"></h2>
-          <p id="modal-summary"></p>
-          <ul id="modal-hl"></ul>
-        </div>
-        <div class="modal-pages" id="modal-pages"></div>
-        <div class="modal-empty" id="modal-empty" style="display:none">
-          <p>📄 Bài này không có ảnh chụp — nội dung nằm hoàn toàn trong file Word.</p>
-          <a id="modal-empty-dl" href="#" class="empty-dl-btn">⬇ Tải file Word để xem</a>
-        </div>
+      <div class="doc-steps" id="doc-steps"></div>
+      <div class="doc-images" id="doc-images"></div>
+      <div class="doc-empty" id="doc-empty" style="display:none">
+        <p>Bài này không có ảnh minh chứng — nội dung trong file Word.</p>
+        <a id="doc-empty-dl" href="#" class="doc-dl-big">⬇ Tải file Word để xem</a>
+      </div>
+      <div class="doc-footer-dl">
+        <a id="doc-footer-dl" href="#" class="doc-dl-big">⬇ Tải file Word gốc</a>
       </div>
     </div>
   </div>
