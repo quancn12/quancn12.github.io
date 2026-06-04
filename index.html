@@ -1,176 +1,151 @@
 <!doctype html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vũ Hoàng Quân — Portfolio</title>
-    <meta name="description" content="Portfolio học tập của Vũ Hoàng Quân — sinh viên ngành Công nghệ thông tin." />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vũ Hoàng Quân — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-    <!-- ── HEADER ── -->
-    <header class="site-header" id="top">
-      <nav class="nav-shell">
-        <a class="brand" href="#top">VQ</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="main-nav" id="main-nav" role="list">
-          <li><a href="#about">Giới thiệu</a></li>
-          <li><a href="#works">Bài làm</a></li>
-          <li><a href="#contact">Liên hệ</a></li>
-        </ul>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">VQ</a>
+      <nav class="nav-links">
+        <a href="#about">Giới thiệu</a>
+        <a href="#works">Bài làm</a>
       </nav>
-    </header>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#about">Giới thiệu</a>
+      <a href="#works">Bài làm</a>
+    </div>
+  </header>
 
-    <main>
-
-      <!-- ── HERO ── -->
-      <section class="hero" id="hero">
-        <div class="hero-inner">
-          <div class="hero-text">
-            <p class="greeting">Xin chào, tôi là</p>
-            <h1>Vũ Hoàng Quân</h1>
-            <p class="tagline">Sinh viên CNTT · Đam mê công nghệ &amp; AI</p>
-            <p class="hero-desc">
-              Đây là portfolio học tập của tôi trong môn <em>Nhập môn Công nghệ số
-              và Ứng dụng Trí tuệ nhân tạo</em> — ghi lại hành trình khám phá,
-              thực hành và phản tư qua từng bài tập.
-            </p>
-            <div class="hero-cta">
-              <a class="btn btn-primary" href="#works">Xem bài làm</a>
-              <a class="btn btn-ghost" href="#about">Về tôi</a>
-            </div>
-          </div>
-          <div class="hero-avatar">
-            <div class="avatar-ring">
-              <div class="avatar-initials">VQ</div>
-            </div>
-            <div class="hero-badge">
-              <span class="badge-num">6</span>
-              <span class="badge-txt">bài hoàn thành</span>
-            </div>
-          </div>
-        </div>
-        <div class="scroll-hint" aria-hidden="true">
-          <span></span>
-        </div>
-      </section>
-
-      <!-- ── ABOUT ── -->
-      <section class="about section-pad" id="about">
-        <div class="container">
-          <h2 class="section-title">Về tôi</h2>
-          <div class="about-grid">
-            <div class="about-info">
-              <table class="info-table">
-                <tr><th>Họ và tên</th><td>Vũ Hoàng Quân</td></tr>
-                <tr><th>MSSV</th><td>25023000</td></tr>
-                <tr><th>Môn học</th><td>Nhập môn Công nghệ số &amp; AI</td></tr>
-                <tr><th>Sở thích</th><td>Lập trình, AI, Game dev</td></tr>
-              </table>
-            </div>
-            <div class="about-desc">
-              <p>
-                Tôi là sinh viên năm nhất ngành Công nghệ thông tin, yêu thích
-                mày mò công nghệ và tìm hiểu cách trí tuệ nhân tạo đang thay đổi
-                cách chúng ta học và làm việc.
-              </p>
-              <p>
-                Qua môn học này, tôi đã thực hành từ những kỹ năng cơ bản như
-                quản lý tệp, tìm kiếm thông tin, cho đến viết prompt AI, hợp tác
-                nhóm trực tuyến và tạo nội dung số — tất cả được ghi lại tại đây.
-              </p>
-              <div class="skill-tags">
-                <span>Quản lý tệp</span>
-                <span>Tìm kiếm học thuật</span>
-                <span>Prompt Engineering</span>
-                <span>Google Workspace</span>
-                <span>Trello</span>
-                <span>Canva AI</span>
-                <span>ChatGPT / Claude</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── WORKS ── -->
-      <section class="works section-pad" id="works">
-        <div class="container">
-          <h2 class="section-title">Bài làm</h2>
-          <p class="section-sub">
-            Nhấn vào bất kỳ bài nào để xem chi tiết, ảnh minh chứng và tải file gốc.
-          </p>
-          <div class="works-grid" id="works-grid"></div>
-        </div>
-      </section>
-
-      <!-- ── CONTACT ── -->
-      <section class="contact section-pad" id="contact">
-        <div class="container contact-inner">
-          <h2 class="section-title">Liên hệ</h2>
-          <p>Bạn có thể liên hệ với tôi qua các kênh bên dưới.</p>
-          <div class="contact-links">
-            <a href="https://github.com/quancn12" class="contact-card" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.09 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.29.76-1.59-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              <span>GitHub</span>
-            </a>
-            <div class="contact-card">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28" aria-hidden="true">
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <polyline points="2,4 12,13 22,4"/>
-              </svg>
-              <span>25023000@student.edu.vn</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>© 2025 Vũ Hoàng Quân · MSSV 25023000</span>
-        <a href="#top">↑ Lên đầu trang</a>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-label">Portfolio học tập · 2024–2025</div>
+      <h1 class="hero-name">Vũ Hoàng&nbsp;Quân</h1>
+      <p class="hero-sub">Nhập môn Công nghệ số & Ứng dụng Trí tuệ nhân tạo</p>
+      <div class="hero-meta">
+        <span>MSSV 25023000</span>
+        <span class="dot">·</span>
+        <span>6 bài thành phần</span>
+        <span class="dot">·</span>
+        <a href="https://github.com/quancn12" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
-    </footer>
+      <a href="#works" class="hero-cta">Xem bài làm ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">6</span><span class="stat-l">bài tập</span></div>
+      <div class="stat"><span class="stat-n">39</span><span class="stat-l">ảnh minh chứng</span></div>
+      <div class="stat"><span class="stat-n">10đ</span><span class="stat-l">điểm tối đa</span></div>
+    </div>
+  </section>
 
-    <!-- ── MODAL XEM BÀI ── -->
-    <div class="modal-overlay" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div class="modal-box">
-        <button class="modal-close" id="modal-close" aria-label="Đóng">&times;</button>
-        <div class="modal-header">
-          <p class="modal-label" id="modal-label"></p>
-          <h2 class="modal-title" id="modal-title"></h2>
-        </div>
-        <div class="modal-body">
-          <div class="modal-gallery" id="modal-gallery">
-            <div class="gallery-main">
-              <button class="gallery-nav prev" id="gallery-prev" aria-label="Ảnh trước">&#8249;</button>
-              <img class="gallery-img" id="gallery-img" src="" alt="" />
-              <button class="gallery-nav next" id="gallery-next" aria-label="Ảnh tiếp">&#8250;</button>
-            </div>
-            <div class="gallery-counter" id="gallery-counter"></div>
-            <div class="gallery-thumbs" id="gallery-thumbs"></div>
-          </div>
-          <div class="modal-no-img" id="modal-no-img" style="display:none">
-            <p>Bài này không có ảnh minh chứng — nội dung nằm trong file Word.</p>
-          </div>
-          <div class="modal-desc">
-            <p id="modal-summary"></p>
-            <ul id="modal-highlights"></ul>
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-left">
+        <div class="about-avatar">VQ</div>
+        <div class="about-info">
+          <h2>Vũ Hoàng Quân</h2>
+          <p class="about-id">MSSV · 25023000</p>
+          <p class="about-bio">
+            Sinh viên năm nhất ngành Công nghệ thông tin, thích lập trình và tìm hiểu về AI.
+            Portfolio này tập hợp các bài tập thực hành trong môn học về kỹ năng số.
+          </p>
+          <div class="tags">
+            <span>Quản lý tệp</span>
+            <span>Prompt AI</span>
+            <span>Google Workspace</span>
+            <span>Trello</span>
+            <span>Canva AI</span>
+            <span>Tìm kiếm học thuật</span>
           </div>
         </div>
-        <div class="modal-footer">
-          <a class="btn btn-primary" id="modal-download" href="#">Tải file Word</a>
+      </div>
+      <div class="about-right">
+        <div class="about-card">
+          <div class="card-icon">📁</div>
+          <div>
+            <strong>Bài 1 – 3</strong>
+            <p>Kỹ năng số cơ bản: quản lý tệp, tìm kiếm thông tin và viết prompt AI.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="card-icon">🤝</div>
+          <div>
+            <strong>Bài 4 – 5</strong>
+            <p>Hợp tác trực tuyến và sáng tạo nội dung số với các công cụ AI.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="card-icon">⚖️</div>
+          <div>
+            <strong>Bài 6</strong>
+            <p>Nghiên cứu chính sách AI và xây dựng nguyên tắc sử dụng AI có trách nhiệm.</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- WORKS -->
+  <section class="works" id="works">
+    <div class="works-header">
+      <div class="wrap">
+        <h2 class="works-title">Bài làm</h2>
+        <p class="works-sub">Nhấn vào bài để xem toàn bộ nội dung và ảnh chụp minh chứng</p>
+      </div>
+    </div>
+
+    <div class="work-list" id="work-list"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© 2025 · Vũ Hoàng Quân · MSSV 25023000</span>
+      <a href="#top">↑ Đầu trang</a>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-panel" id="modal-panel">
+      <div class="modal-topbar">
+        <div class="modal-topbar-info">
+          <span class="modal-badge" id="modal-badge"></span>
+          <span class="modal-topbar-title" id="modal-topbar-title"></span>
+        </div>
+        <div class="modal-topbar-actions">
+          <a class="modal-dl-btn" id="modal-dl" href="#">⬇ Tải file Word</a>
+          <button class="modal-x" id="modal-x" aria-label="Đóng">✕</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-intro">
+          <h2 id="modal-title"></h2>
+          <p id="modal-summary"></p>
+          <ul id="modal-hl"></ul>
+        </div>
+        <div class="modal-pages" id="modal-pages"></div>
+        <div class="modal-empty" id="modal-empty" style="display:none">
+          <p>📄 Bài này không có ảnh chụp — nội dung nằm hoàn toàn trong file Word.</p>
+          <a id="modal-empty-dl" href="#" class="empty-dl-btn">⬇ Tải file Word để xem</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
