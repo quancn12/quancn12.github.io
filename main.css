@@ -424,3 +424,15 @@ a { color: inherit; text-decoration: none; }
   .modal-pages { padding: 20px 20px 40px; }
   .modal-topbar { padding: 0 16px; }
 }
+
+/* Avatar photo */
+.about-avatar-wrap { position: relative; flex-shrink: 0; }
+.about-photo {
+  width: 120px; height: 120px; border-radius: 50%;
+  object-fit: cover; object-position: top center;
+  border: 3px solid rgba(129,140,248,.4);
+  display: block;
+}
+.about-school {
+  font-size: .82rem; color: #64748b; margin-bottom: 14px; font-weight: 500;
+}
