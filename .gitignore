@@ -1,0 +1,16 @@
+node_modules/
+package-lock.json
+unpacked_rubric/
+
+# QA screenshots (không cần deploy)
+qa-*.png
+
+# Duplicate root docx files (bản chính ở assets/docs)
+/baitap1_muc14.docx
+/baitap2_muc24.docx
+/baitap2_muc34.docx
+/baitap2_muc54.docx
+/baitap3_muc44.docx
+/baitap4_muc64.docx
+/Rubric đánh giá.docx
+/bai-tap-du-an-ca-nhan-portfolio.png
