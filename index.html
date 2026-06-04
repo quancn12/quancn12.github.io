@@ -3,201 +3,172 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Kỹ thuật số - Vũ Hoàng Quân</title>
-    <meta
-      name="description"
-      content="Portfolio kỹ thuật số tổng hợp các bài tập thành phần của Vũ Hoàng Quân."
-    />
+    <title>Vũ Hoàng Quân — Portfolio</title>
+    <meta name="description" content="Portfolio học tập của Vũ Hoàng Quân — sinh viên ngành Công nghệ thông tin." />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+
+    <!-- ── HEADER ── -->
     <header class="site-header" id="top">
-      <nav class="nav-shell" aria-label="Dieu huong chinh">
-        <a class="brand" href="#top">
-          <span class="brand-mark">VQ</span>
-          <span>
-            <strong>Vũ Hoàng Quân</strong>
-            <small>Portfolio kỹ thuật số</small>
-          </span>
-        </a>
+      <nav class="nav-shell">
+        <a class="brand" href="#top">VQ</a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
-        <div class="main-nav" id="main-nav">
-          <a href="#gioi-thieu">Giới thiệu</a>
-          <a href="#du-an">Dự án</a>
-          <a href="#rubric">Rubric</a>
-          <a href="#tong-ket">Tổng kết</a>
-        </div>
+        <ul class="main-nav" id="main-nav" role="list">
+          <li><a href="#about">Giới thiệu</a></li>
+          <li><a href="#works">Bài làm</a></li>
+          <li><a href="#contact">Liên hệ</a></li>
+        </ul>
       </nav>
     </header>
 
     <main>
-      <section class="hero section-band">
-        <div class="hero-copy">
-          <p class="eyebrow">Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo</p>
-          <h1>Portfolio Kỹ thuật số</h1>
-          <p class="lead">
-            Tổng hợp quá trình học tập, sản phẩm bài tập và minh chứng thực hành của
-            Vũ Hoàng Quân, MSSV 25023000.
+
+      <!-- ── HERO ── -->
+      <section class="hero" id="hero">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="greeting">Xin chào, tôi là</p>
+            <h1>Vũ Hoàng Quân</h1>
+            <p class="tagline">Sinh viên CNTT · Đam mê công nghệ &amp; AI</p>
+            <p class="hero-desc">
+              Đây là portfolio học tập của tôi trong môn <em>Nhập môn Công nghệ số
+              và Ứng dụng Trí tuệ nhân tạo</em> — ghi lại hành trình khám phá,
+              thực hành và phản tư qua từng bài tập.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#works">Xem bài làm</a>
+              <a class="btn btn-ghost" href="#about">Về tôi</a>
+            </div>
+          </div>
+          <div class="hero-avatar">
+            <div class="avatar-ring">
+              <div class="avatar-initials">VQ</div>
+            </div>
+            <div class="hero-badge">
+              <span class="badge-num">6</span>
+              <span class="badge-txt">bài hoàn thành</span>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-hint" aria-hidden="true">
+          <span></span>
+        </div>
+      </section>
+
+      <!-- ── ABOUT ── -->
+      <section class="about section-pad" id="about">
+        <div class="container">
+          <h2 class="section-title">Về tôi</h2>
+          <div class="about-grid">
+            <div class="about-info">
+              <table class="info-table">
+                <tr><th>Họ và tên</th><td>Vũ Hoàng Quân</td></tr>
+                <tr><th>MSSV</th><td>25023000</td></tr>
+                <tr><th>Môn học</th><td>Nhập môn Công nghệ số &amp; AI</td></tr>
+                <tr><th>Sở thích</th><td>Lập trình, AI, Game dev</td></tr>
+              </table>
+            </div>
+            <div class="about-desc">
+              <p>
+                Tôi là sinh viên năm nhất ngành Công nghệ thông tin, yêu thích
+                mày mò công nghệ và tìm hiểu cách trí tuệ nhân tạo đang thay đổi
+                cách chúng ta học và làm việc.
+              </p>
+              <p>
+                Qua môn học này, tôi đã thực hành từ những kỹ năng cơ bản như
+                quản lý tệp, tìm kiếm thông tin, cho đến viết prompt AI, hợp tác
+                nhóm trực tuyến và tạo nội dung số — tất cả được ghi lại tại đây.
+              </p>
+              <div class="skill-tags">
+                <span>Quản lý tệp</span>
+                <span>Tìm kiếm học thuật</span>
+                <span>Prompt Engineering</span>
+                <span>Google Workspace</span>
+                <span>Trello</span>
+                <span>Canva AI</span>
+                <span>ChatGPT / Claude</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── WORKS ── -->
+      <section class="works section-pad" id="works">
+        <div class="container">
+          <h2 class="section-title">Bài làm</h2>
+          <p class="section-sub">
+            Nhấn vào bất kỳ bài nào để xem chi tiết, ảnh minh chứng và tải file gốc.
           </p>
-          <p class="owner-line">
-            <strong>Chủ sở hữu:</strong> Vũ Hoàng Quân <span>Mã sinh viên: 25023000</span>
-          </p>
-          <div class="hero-actions" aria-label="Lien ket nhanh">
-            <a class="button primary" href="#du-an">Xem 6 bài tập</a>
-            <a class="button" href="assets/docs/rubric_danh_gia.docx">Tải rubric</a>
-          </div>
-        </div>
-        <figure class="hero-visual">
-          <img src="assets/images/assignment.png" alt="Anh de bai du an portfolio" />
-          <figcaption>Đề bài dự án cá nhân Portfolio</figcaption>
-        </figure>
-      </section>
-
-      <section class="snapshot" aria-label="Thong tin nhanh">
-        <div>
-          <strong>6</strong>
-          <span>bài tập thành phần</span>
-        </div>
-        <div>
-          <strong>39</strong>
-          <span>ảnh minh chứng</span>
-        </div>
-        <div>
-          <strong>10</strong>
-          <span>điểm rubric tối đa</span>
-        </div>
-        <div>
-          <strong>GitHub Pages</strong>
-          <span>sẵn sàng đăng tải</span>
+          <div class="works-grid" id="works-grid"></div>
         </div>
       </section>
 
-      <section class="intro section-band" id="gioi-thieu">
-        <div class="section-heading">
-          <p class="eyebrow">Mục tiêu</p>
-          <h2>Một nơi tập hợp sản phẩm học tập</h2>
-        </div>
-        <div class="intro-grid">
-          <div class="intro-text">
-            <p>
-              Website này được xây dựng để hệ thống hóa các kết quả bài tập nhỏ từ
-              Bài 1 đến Bài 6, đồng thời trình bày quá trình thực hiện, minh chứng
-              và bài học cá nhân sau từng kỹ năng.
-            </p>
-            <p>
-              Nội dung được sắp xếp theo đúng yêu cầu của đề bài: trang giới thiệu,
-              trang dự án với các bài tập đã hoàn thành, rubric đánh giá và phần tổng kết.
-            </p>
-          </div>
-          <div class="requirement-list" aria-label="Yeu cau san pham">
-            <div>
-              <span>01</span>
-              <p>Giới thiệu bản thân, mục tiêu học tập và định hướng phát triển.</p>
-            </div>
-            <div>
-              <span>02</span>
-              <p>Trình bày 6 bài tập kèm mô tả, kết quả và minh chứng rõ ràng.</p>
-            </div>
-            <div>
-              <span>03</span>
-              <p>Tổng kết trải nghiệm, bài học và những điểm cần cải thiện.</p>
+      <!-- ── CONTACT ── -->
+      <section class="contact section-pad" id="contact">
+        <div class="container contact-inner">
+          <h2 class="section-title">Liên hệ</h2>
+          <p>Bạn có thể liên hệ với tôi qua các kênh bên dưới.</p>
+          <div class="contact-links">
+            <a href="https://github.com/quancn12" class="contact-card" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.17c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.09 1.83 1.23 1.83 1.23 1.06 1.82 2.79 1.29 3.47.99.11-.77.42-1.29.76-1.59-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <div class="contact-card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <polyline points="2,4 12,13 22,4"/>
+              </svg>
+              <span>25023000@student.edu.vn</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="projects section-band" id="du-an">
-        <div class="section-heading">
-          <p class="eyebrow">Trang dự án</p>
-          <h2>Kết quả bài tập thành phần</h2>
-          <p>
-            Các file Word gốc được giữ lại để tải về; mỗi phần bên dưới tóm tắt mục tiêu,
-            cách thức thực hiện và sản phẩm nổi bật.
-          </p>
-        </div>
-        <div class="project-grid" id="project-grid" aria-label="Danh sach bai tap"></div>
-      </section>
-
-      <section class="details section-band" id="chi-tiet">
-        <div class="section-heading">
-          <p class="eyebrow">Minh chứng</p>
-          <h2>Chi tiết từng bài tập</h2>
-        </div>
-        <div id="exercise-details"></div>
-      </section>
-
-      <section class="rubric section-band" id="rubric">
-        <div class="section-heading">
-          <p class="eyebrow">Tiêu chí đánh giá</p>
-          <h2>Rubric tóm tắt</h2>
-        </div>
-        <div class="rubric-layout">
-          <div class="rubric-score">
-            <strong>10</strong>
-            <span>điểm tối đa</span>
-            <a href="assets/docs/rubric_danh_gia.docx">Mở file rubric gốc</a>
-          </div>
-          <div class="rubric-table" role="table" aria-label="Bang rubric">
-            <div role="row">
-              <strong role="columnheader">Tiêu chí</strong>
-              <strong role="columnheader">Điểm</strong>
-            </div>
-            <div role="row"><span>Thiết kế và cấu trúc Portfolio</span><span>3</span></div>
-            <div role="row"><span>Nhiệm vụ 1: Quản lý tệp và thư mục</span><span>1</span></div>
-            <div role="row"><span>Nhiệm vụ 2: Tìm kiếm và đánh giá thông tin</span><span>1</span></div>
-            <div role="row"><span>Nhiệm vụ 3: Viết Prompt hiệu quả</span><span>1</span></div>
-            <div role="row"><span>Nhiệm vụ 4: Hợp tác trực tuyến</span><span>1</span></div>
-            <div role="row"><span>Nhiệm vụ 5: Sáng tạo nội dung với AI</span><span>1</span></div>
-            <div role="row"><span>Nhiệm vụ 6: Sử dụng AI có trách nhiệm</span><span>1</span></div>
-            <div role="row"><span>Tổng kết và đánh giá bản thân</span><span>1</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="reflection section-band" id="tong-ket">
-        <div class="section-heading">
-          <p class="eyebrow">Tổng kết</p>
-          <h2>Những gì đã học được</h2>
-        </div>
-        <div class="reflection-grid">
-          <div>
-            <h3>Kiến thức</h3>
-            <p>
-              Hiểu rõ hơn cách quản lý tệp, tìm kiếm thông tin học thuật, đánh giá nguồn,
-              viết prompt và sử dụng AI như công cụ hỗ trợ học tập.
-            </p>
-          </div>
-          <div>
-            <h3>Kỹ năng</h3>
-            <p>
-              Rèn luyện cách trình bày minh chứng, phối hợp trực tuyến, tạo nội dung số
-              và chuyển kết quả bài tập thành một sản phẩm portfolio có cấu trúc.
-            </p>
-          </div>
-          <div>
-            <h3>Định hướng</h3>
-            <p>
-              Tiếp tục sử dụng AI minh bạch, kiểm chứng thông tin và giữ vai trò tư duy
-              cá nhân trong mọi sản phẩm học tập.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
-      <p>Portfolio Kỹ thuật số - Vũ Hoàng Quân - MSSV 25023000</p>
-      <a href="#top">Lên đầu trang</a>
+      <div class="container footer-inner">
+        <span>© 2025 Vũ Hoàng Quân · MSSV 25023000</span>
+        <a href="#top">↑ Lên đầu trang</a>
+      </div>
     </footer>
 
-    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Xem ảnh">
-      <button class="lightbox-close" type="button" aria-label="Đóng ảnh">x</button>
-      <img src="" alt="" />
-      <p></p>
+    <!-- ── MODAL XEM BÀI ── -->
+    <div class="modal-overlay" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-box">
+        <button class="modal-close" id="modal-close" aria-label="Đóng">&times;</button>
+        <div class="modal-header">
+          <p class="modal-label" id="modal-label"></p>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+        <div class="modal-body">
+          <div class="modal-gallery" id="modal-gallery">
+            <div class="gallery-main">
+              <button class="gallery-nav prev" id="gallery-prev" aria-label="Ảnh trước">&#8249;</button>
+              <img class="gallery-img" id="gallery-img" src="" alt="" />
+              <button class="gallery-nav next" id="gallery-next" aria-label="Ảnh tiếp">&#8250;</button>
+            </div>
+            <div class="gallery-counter" id="gallery-counter"></div>
+            <div class="gallery-thumbs" id="gallery-thumbs"></div>
+          </div>
+          <div class="modal-no-img" id="modal-no-img" style="display:none">
+            <p>Bài này không có ảnh minh chứng — nội dung nằm trong file Word.</p>
+          </div>
+          <div class="modal-desc">
+            <p id="modal-summary"></p>
+            <ul id="modal-highlights"></ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-primary" id="modal-download" href="#">Tải file Word</a>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
