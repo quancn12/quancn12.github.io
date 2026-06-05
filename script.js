@@ -188,6 +188,29 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && docPage.classList.contains('open')) closeDoc();
 });
 
+/* ── ANIMATED COUNTER khi scroll đến Tổng kết ── */
+const counters = document.querySelectorAll('.rs-num[data-target]');
+if (counters.length) {
+  const countObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = +el.dataset.target;
+      const duration = 1200;
+      const step = Math.ceil(target / (duration / 16));
+      let cur = 0;
+      const tick = () => {
+        cur = Math.min(cur + step, target);
+        el.textContent = cur;
+        if (cur < target) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      countObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => countObs.observe(c));
+}
+
 const hamburger = document.querySelector('.hamburger');
 const navMobile = document.getElementById('nav-mobile');
 hamburger.addEventListener('click', () => {
