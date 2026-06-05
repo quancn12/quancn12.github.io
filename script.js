@@ -165,7 +165,35 @@ async function openDoc(id) {
     if (!res.ok) throw new Error('Không tải được file (' + res.status + ')');
     const buf = await res.arrayBuffer();
     const result = await mammoth.convertToHtml({ arrayBuffer: buf });
-    docRender.innerHTML            = result.value;
+    docRender.innerHTML = result.value;
+
+    // Xóa drawing objects / annotations không render được
+    docRender.querySelectorAll('img').forEach(img => {
+      // Xóa ảnh src rỗng hoặc trỏ về chính trang (drawing artifact)
+      const src = img.getAttribute('src') || '';
+      if (!src || src === window.location.href || src.startsWith('data:image/x-emf') || src.startsWith('data:image/x-wmf')) {
+        img.closest('p') ? img.closest('p').remove() : img.remove();
+        return;
+      }
+      // Xóa ảnh bị lỗi load (broken drawings)
+      img.addEventListener('error', () => {
+        const p = img.closest('p');
+        p ? p.remove() : img.remove();
+      });
+      // Xóa ảnh quá nhỏ (< 20px) — thường là drawing artifact
+      img.addEventListener('load', () => {
+        if (img.naturalWidth < 20 || img.naturalHeight < 20) {
+          const p = img.closest('p');
+          p ? p.remove() : img.remove();
+        }
+      });
+    });
+
+    // Xóa các thẻ <p> rỗng hoàn toàn (không chứa text lẫn ảnh)
+    docRender.querySelectorAll('p').forEach(p => {
+      if (!p.textContent.trim() && p.querySelectorAll('img').length === 0) p.remove();
+    });
+
     docRenderLoading.style.display = 'none';
     docRender.style.display        = 'block';
   } catch (err) {
