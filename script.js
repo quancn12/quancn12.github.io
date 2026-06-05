@@ -3,7 +3,7 @@ const works = [
     id: 1,
     source: 'Bài tập 1 · Mục 1.4',
     title: 'Thao tác cơ bản với tệp tin và thư mục',
-    doc: 'assets/docs/baitap1_muc14.docx',
+    doc: 'assets/docs/baitap1_muc14_v2.docx',
     summary: 'Thực hành tạo thư mục, đặt tên tệp theo quy tắc, sao chép, di chuyển, xóa và khôi phục tệp trong Recycle Bin trên Windows.',
     highlights: [
       'Tạo cây thư mục ThucHanh_tensinhvien và thư mục con TaiLieu trên ổ đĩa D',
