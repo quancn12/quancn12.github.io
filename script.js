@@ -85,21 +85,10 @@ const works = [
   }
 ];
 
-works.forEach(w => {
-  w.images = Array.from({length: w.pages}, (_, i) =>
-    'assets/images/' + w.folder + '/page_' + String(i+1).padStart(2,'0') + '.png'
-  );
-});
 
 const list = document.getElementById('work-list');
-list.innerHTML = works.map((w, i) => {
-  const PREVIEW_COUNT = 4;
-  const thumbs = w.images.slice(0, PREVIEW_COUNT).map(src =>
-    '<div class="preview-thumb"><img src="' + src + '" alt="" loading="lazy"></div>'
-  ).join('') + (w.images.length > PREVIEW_COUNT
-    ? '<div class="preview-more" data-id="' + w.id + '"><span>+' + (w.images.length - PREVIEW_COUNT) + '</span><span>trang</span></div>'
-    : '');
-  return '<div class="work-item" id="item-' + w.id + '">' +
+list.innerHTML = works.map((w, i) =>
+  '<div class="work-item" id="item-' + w.id + '">' +
     '<div class="work-trigger" data-id="' + w.id + '">' +
       '<div class="work-num">0' + (i+1) + '</div>' +
       '<div class="work-info">' +
@@ -108,31 +97,16 @@ list.innerHTML = works.map((w, i) => {
         '<div class="work-desc">' + w.summary + '</div>' +
       '</div>' +
       '<div class="work-meta">' +
-        '<span class="work-img-badge">' + w.pages + ' trang</span>' +
+        '<span class="work-img-badge">📄 Word</span>' +
         '<button class="work-open-btn">&rarr;</button>' +
       '</div>' +
     '</div>' +
-    '<div class="work-preview" id="preview-' + w.id + '">' +
-      '<div class="work-preview-inner">' + thumbs + '</div>' +
-      '<button class="work-preview-open-btn" data-id="' + w.id + '">' +
-        'Xem toàn bộ bài làm &rarr;' +
-      '</button>' +
-    '</div>' +
-  '</div>';
-}).join('');
+  '</div>'
+).join('');
 
 list.addEventListener('click', e => {
-  const openBtn = e.target.closest('.work-preview-open-btn');
-  const moreBtn = e.target.closest('.preview-more');
   const trigger = e.target.closest('.work-trigger');
-  if (openBtn || moreBtn) { openDoc(Number((openBtn || moreBtn).dataset.id)); return; }
-  if (trigger) {
-    const id = Number(trigger.dataset.id);
-    const preview = document.getElementById('preview-' + id);
-    if (!preview) { openDoc(id); return; }
-    const isOpen = preview.classList.toggle('open');
-    trigger.querySelector('.work-open-btn').innerHTML = isOpen ? '&uarr;' : '&rarr;';
-  }
+  if (trigger) openDoc(Number(trigger.dataset.id));
 });
 
 const docPage     = document.getElementById('doc-page');
@@ -211,25 +185,7 @@ function closeDoc() {
 
 docBack.addEventListener('click', closeDoc);
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    if (zoom.classList.contains('open')) zoom.classList.remove('open');
-    else if (docPage.classList.contains('open')) closeDoc();
-  }
-});
-
-const zoom = document.createElement('div');
-zoom.className = 'zoom-overlay';
-zoom.innerHTML = '<button class="zoom-close">&times;</button><img src="" alt="">';
-document.body.appendChild(zoom);
-const zoomImg = zoom.querySelector('img');
-docImages.addEventListener('click', e => {
-  const img = e.target.closest('img');
-  if (!img) return;
-  zoomImg.src = img.src;
-  zoom.classList.add('open');
-});
-zoom.addEventListener('click', e => {
-  if (e.target === zoom || e.target.closest('.zoom-close')) zoom.classList.remove('open');
+  if (e.key === 'Escape' && docPage.classList.contains('open')) closeDoc();
 });
 
 const hamburger = document.querySelector('.hamburger');
