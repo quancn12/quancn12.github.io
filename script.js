@@ -148,16 +148,22 @@ const docEmpty    = document.getElementById('doc-empty');
 const docEmptyDl  = document.getElementById('doc-empty-dl');
 const docFooterDl = document.getElementById('doc-footer-dl');
 
-function openDoc(id) {
+const docRenderLoading = document.getElementById('doc-render-loading');
+const docRender        = document.getElementById('doc-render');
+
+async function openDoc(id) {
   const w = works.find(x => x.id === id);
   if (!w) return;
-  docSource.textContent = w.source;
-  docDl.href = w.doc;
-  docLabel.textContent = w.source;
-  docTitle.textContent = w.title;
+
+  // Điền thông tin header
+  docSource.textContent  = w.source;
+  docDl.href             = w.doc;
+  docLabel.textContent   = w.source;
+  docTitle.textContent   = w.title;
   docSummary.textContent = w.summary;
-  docFooterDl.href = w.doc;
-  docEmptyDl.href = w.doc;
+  docFooterDl.href       = w.doc;
+  docEmptyDl.href        = w.doc;
+
   docSteps.innerHTML = '<p class="doc-steps-title">Nội dung thực hiện</p>' +
     w.highlights.map((h, i) =>
       '<div class="doc-step">' +
@@ -165,23 +171,36 @@ function openDoc(id) {
         '<div class="doc-step-text">' + h + '</div>' +
       '</div>'
     ).join('');
-  if (w.images.length > 0) {
-    docEmpty.style.display = 'none';
-    docImages.style.display = 'flex';
-    docImages.innerHTML = w.images.map((src, i) =>
-      '<div class="doc-img-block">' +
-        '<p class="doc-img-caption">Trang ' + (i+1) + ' / ' + w.images.length + '</p>' +
-        '<div class="doc-img-wrap"><img src="' + src + '" alt="Trang ' + (i+1) + '" loading="lazy"></div>' +
-      '</div>'
-    ).join('');
-  } else {
-    docImages.style.display = 'none';
-    docEmpty.style.display = 'block';
-  }
+
+  // Reset trạng thái
+  docImages.style.display        = 'none';
+  docEmpty.style.display         = 'none';
+  docRender.style.display        = 'none';
+  docRender.innerHTML            = '';
+  docRenderLoading.style.display = 'flex';
+
+  // Mở overlay
   docPage.classList.add('open');
   docPage.setAttribute('aria-hidden', 'false');
   docPage.scrollTop = 0;
   document.body.style.overflow = 'hidden';
+
+  // Fetch file Word rồi render bằng mammoth
+  try {
+    const res = await fetch(w.doc);
+    if (!res.ok) throw new Error('Không tải được file (' + res.status + ')');
+    const buf = await res.arrayBuffer();
+    const result = await mammoth.convertToHtml({ arrayBuffer: buf });
+    docRender.innerHTML            = result.value;
+    docRenderLoading.style.display = 'none';
+    docRender.style.display        = 'block';
+  } catch (err) {
+    console.error('[openDoc]', err);
+    docRenderLoading.style.display = 'none';
+    docEmpty.style.display         = 'block';
+    document.querySelector('#doc-empty p').textContent =
+      'Không thể tải tài liệu: ' + (err.message || 'lỗi không xác định');
+  }
 }
 
 function closeDoc() {

@@ -136,6 +136,10 @@
         <p class="doc-summary" id="doc-summary"></p>
       </div>
       <div class="doc-steps" id="doc-steps"></div>
+      <div class="doc-render-loading" id="doc-render-loading" style="display:none">
+        <div class="doc-render-spin"></div><span>Đang tải tài liệu Word...</span>
+      </div>
+      <div class="doc-render" id="doc-render" style="display:none"></div>
       <div class="doc-images" id="doc-images"></div>
       <div class="doc-empty" id="doc-empty" style="display:none">
         <p>Bài này không có ảnh minh chứng — nội dung trong file Word.</p>
@@ -147,6 +151,7 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/mammoth@1/mammoth.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
